@@ -1,0 +1,32 @@
+{% extends 'restaurante/base.html' %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ STATIC_URL }}restaurante/css/deg_restaurante.css" />{% endblock %}
+
+{% block scripts %}<script src="{{ STATIC_URL }}restaurante/js/deg_restaurante.js"></script>{% endblock %}
+
+{% block content %}
+	
+	<div class="deg-cardapio-menu">
+		<ul class="nav nav-tabs">
+			{% block card_nav %}
+				<li class="active"><a href="url 'restaurante:editar_cardapio' cardapio.id ">Cardapio</a></li>
+				<li><a href="{% url 'restaurante:lista_itens' cardapio.id %}">Item</a></li>
+				<li><a>Opção</a></li>
+			{% endblock card_nav %}
+		</ul>
+		<div class="deg-cardapio-left">
+			{% block card_left %}
+				{% if itens %}
+					{% for item in itens %}
+						<p>{{ item.nome }}</p>
+					{% endfor %}
+				{% endif %}
+			{% endblock card_left %}
+		</div>
+		<!--<div class="deg-cardapio-right">
+			{% block card_right %}
+				float right
+			{% endblock card_right %}
+		</div>-->
+	</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'restaurante/base-card.html' %}
+{% block content %}
+	<form method="post" action=".">
+		{% csrf_token %}
+		<h3>Are you sure deletting the item {{item}}<h3>
+		<input type="hidden" name="id" value="{{item.id}}">
+		<input type="submit" value="Deletar">
+		<a href="{% url 'restaurante:meus_cardapios' %}"><span>Cancelar</span></a>
+	</form>
+{% endblock %}

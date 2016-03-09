@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title>{% block title %}Degustoo{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'index/css/bootstrap.min.css'%}" />
+	<link rel="stylesheet" href="{% static 'index/css/degustoo.css'%}" />
+	<link rel="stylesheet" href="{% static 'index/css/style.css'%}" />
+	
+	<script src="{% static 'index/js/jquery.min.js' %}"></script>
+	<script src="{% static 'index/js/bootstrap.js' %}"></script>
+	<script src="{% static 'index/js/degustoo.js' %}"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'index:index' %}"><img src="{% static 'index/img/main-logo.png' %}" alt="Degustoo"/>&nbsp;</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Sobre nós</a></li>
+                        <li class="deg-index-menu-li-parent">
+                            Donos de restaurante
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Degustoo</a></li>
+                                <li><a href="#">Cadastre-se</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="{% url 'index:registrar' %}">Registrar</a></li>
+                        <li><a href="{% url 'index:login' %}">Login</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+	<div class="deg-container">
+            {% block content %}{% endblock %}
+            <hr>
+            <footer>
+            </footer>
+        </div>
+</body>
+</html>

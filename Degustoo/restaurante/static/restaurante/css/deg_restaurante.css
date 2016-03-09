@@ -1,0 +1,123 @@
+.deg_h2{
+    text-align: center;
+    background-color: #3e3e3e;
+    color: white;
+    padding: 15px;
+    margin: 0;
+}
+
+.deg-cardapio-left{
+	/*float: left;*/
+	padding-right: 5px 50px 5px 5px;
+}
+
+.deg-cardapio-right{
+	float: left;
+}
+
+.deg-panel{
+    position: absolute;
+    border-style: ridge;
+    border-color: #deb887;
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff8dc;
+}
+
+.deg-panel input{
+    background: #FFF8DC;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 16px;
+    padding: 8px;
+    margin: 2px;
+}
+
+.deg-panel-closebtn{
+	float: right;
+}
+
+.deg-panel-title{
+    text-align: center;
+    display: block;
+}
+
+.hidden{
+
+}
+
+.cardapio-panel{
+
+}
+
+.deg_creator_btncontainer{
+    width: 150px;
+    margin: 0 auto;
+    height: 50px;
+}
+.deg_creator_btn{
+    text-align: center;
+    background: #1E6F0F;
+    width: 150px;
+    margin: 0;
+    color: bisque;
+    height: 25px;
+}
+
+
+.deg_c_container{
+    display: flex;
+}
+.deg_fpanel_container a{
+    float:right;
+    margin-right: 3px;
+}
+.deg_fpanel_containerb a{
+    float:none;
+}
+.deg_fpanel{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+}
+.deg_fpanel > div {
+    margin: 10% auto;
+    width: 400px;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+
+.deg_fpanel_closer {
+    text-decoration: none;
+    background-color: #BD0000;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: 900;
+    color: #F9F9F9;
+    transition: 0.5s;
+}
+
+.deg_fpanel_closer:hover{
+    text-decoration: none;
+    background-color: black;
+    color: #BD0000;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+a:before{
+    width: 400px;
+    color: red;
+}

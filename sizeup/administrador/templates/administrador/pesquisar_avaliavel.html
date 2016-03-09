@@ -1,0 +1,27 @@
+{% if form %}
+	<form method="POST" action=".">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit", value="Search">
+	</form>
+{% endif %}
+
+{% if avaliaveis %}
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Telefone</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+	{% for av in avaliaveis %}
+				<tr>
+					<td>{{av.nome}}</td>
+					<td>{{av.telefone}}</td>
+				</tr>
+	{% endfor %}
+			</tbody>
+		<table>
+{% endif %}

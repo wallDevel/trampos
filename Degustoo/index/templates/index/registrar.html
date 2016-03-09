@@ -1,0 +1,26 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+	<form action="" method="POST" role="form">
+		{% csrf_token %}
+		{{ form.status }}
+		{% for field in form.visible_fields %}
+	      <div class="form-group{% if field.errors %} has-error{% endif %}">
+	  		<label for="{{ field.label }}" class="control-label col-sm-2">{{ field.label }}</label>
+	        <div class="col-sm-10">
+	        	{{ field }}
+	        	{% if field.help_text %}
+		          <span class="help-block">{{ field.help_text }}</span>
+		        {% endif %}
+		        {% for error in field.errors %}
+		          <label class="control-label">{{ error }}</label>
+		        {% endfor %}
+	        </div>
+	      </div>
+	    {% endfor %}
+	    <div class="form-group col-sm-2">
+	    	<input class="btn btn-primary" type="submit" value="Cadastrar-se"/>
+	    	<a class="btn btn-default">Cancelar</a>
+	    </div>
+	</form>
+{% endblock %}

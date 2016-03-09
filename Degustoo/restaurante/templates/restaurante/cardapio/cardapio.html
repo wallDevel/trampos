@@ -1,0 +1,241 @@
+{% extends 'restaurante/base-card.html' %}
+
+{% block content %}
+	
+	<h2 class="deg_h2">Cardapio {{cardapio.titulo}}</h2>
+	{{ cardapio.titulo }}
+
+
+	<h2 class="deg_h2">Opção</h2>
+	<div class="deg_fpanel_container">
+		<a class="btn btn-success" title="Novo Item">Criar Novo <span class="glyphicon glyphicon-plus"></snap></a>
+		<div class="deg_fpanel">
+			<div>
+				<a class="deg_fpanel_closer">X</a>
+				<h3>Nova Opção</h3>
+				<form class="deg-addOpcao-form" method="post" action="{% url 'restaurante:criar_opcao' cardapio.id %}">
+					{% csrf_token %}
+					<input name="rotulo" type="text" placeholder="Rótulo:"/>
+					<input type="submit" value="Salvar"/>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	{% if opcoes %}
+		<table class="table" id="deg-opcao-table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Rotulo</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for opcao in opcoes %}
+				<tr>
+					<td>{{ opcao.id }}</td>
+					<td>{{ opcao.rotulo }}</td>
+					<td>
+						<div class="deg_c_container">
+							<a class="btn btn-success" href="{% url 'restaurante:opcao' cardapio.id opcao.id %}">Adicionar Item <span class="glyphicon glyphicon-plus"></a> 
+							<div class="deg_fpanel_container">
+								<a class="btn btn-warning" title="Editar Opção">Editar <span class="glyphicon glyphicon-pencil"></snap></a>
+								<div class="deg_fpanel">
+									<div>
+										<a class="deg_fpanel_closer">X</a>
+										<h3>Editar Opção</h3>
+										<form class="deg-editOpcao-form" method="POST" action="{% url 'restaurante:editar_opcao' cardapio.id opcao.id %}">
+											{% csrf_token %}
+											<input name="rotulo" type="text" placeholder="Rótulo:" value="{{opcao.rotulo}}"/>
+											<input type="submit" value="Salvar"/>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="deg_fpanel_container">
+								<a class="btn btn-danger" title="Excluir Opção">Excluir <span class="glyphicon glyphicon-trash"></snap></a>
+								<div class="deg_fpanel">
+									<div>
+										<a class="deg_fpanel_closer">X</a>
+										<h3>Deletar Opção</h3>
+										<form class="deg-deleteOpcao-form" method="POST" action="{% url 'restaurante:deletar_opcao' cardapio.id opcao.id %}">
+											{% csrf_token %}
+											<h4>Tem certeza que deseja excluir a opção {{opcao.rotulo}} ?</h4>
+											<input name="id" type="hidden" value="{{opcao.id}}"/>
+											<input type="submit" value="Excluir"/>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>	
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<table class="table" id="deg-opcao-table">
+		</table>
+		<p>Nenhuma opção disponivel</p>
+	{% endif %}
+
+
+
+
+	<h2 class="deg_h2">Subcardapio</h2>
+	<div class="deg_fpanel_container">
+		<a class="btn btn-success" title="Novo Item">Criar Novo <span class="glyphicon glyphicon-plus"></snap></a>
+		<div class="deg_fpanel">
+			<div>
+				<a class="deg_fpanel_closer">X</a>
+				<h3>Novo Subcardapio</h3>
+				<form class="deg-addSubcardapio-form" method="post" action="{% url 'restaurante:criar_subcardapio' cardapio.id %}">
+					{% csrf_token %}
+					<input name="titulo" type="text" placeholder="Titulo:"/>
+					<input type="submit" value="Salvar"/>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	{% if subcardapios %}
+		<table class="table" id="deg-subcardapio-table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Titulo</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for subcardapio in subcardapios %}
+				<tr>
+					<td>{{ subcardapio.id }}</td>
+					<td>{{ subcardapio.titulo }}</td>
+					<td>
+						<div class="deg_c_container">
+							<a class="btn btn-success" href="{% url 'restaurante:subcardapio' cardapio.id subcardapio.id %}">Adicionar Item <span class="glyphicon glyphicon-plus"></a> 
+							<div class="deg_fpanel_container">
+								<a class="btn btn-warning" title="Editar Subcardapio">Editar <span class="glyphicon glyphicon-pencil"></snap></a>
+								<div class="deg_fpanel">
+									<div>
+										<a class="deg_fpanel_closer">X</a>
+										<h3>Editar Subcardapio</h3>
+										<form class="deg-editSubcardapio-form" method="POST" action="{% url 'restaurante:editar_subcardapio' cardapio.id subcardapio.id %}">
+											{% csrf_token %}
+											<input name="titulo" type="text" placeholder="Titulo:" value="{{subcardapio.titulo}}"/>
+											<input type="submit" value="Salvar"/>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="deg_fpanel_container">
+								<a class="btn btn-danger" title="Excluir Subcardapio">Excluir <span class="glyphicon glyphicon-trash"></snap></a>
+								<div class="deg_fpanel">
+									<div>
+										<a class="deg_fpanel_closer">X</a>
+										<h3>Deletar Subcardapio</h3>
+										<form class="deg-deleteSubcardapio-form" method="POST" action="{% url 'restaurante:deletar_subcardapio' cardapio.id subcardapio.id %}">
+											{% csrf_token %}
+											<h4>Tem certeza que deseja excluir o subcardapio {{subcardapio.titulo}} ?</h4>
+											<input name="id" type="hidden" value="{{subcardapio.id}}"/>
+											<input type="submit" value="Excluir"/>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>	
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<table class="table" id="deg-subcardapio-table">
+		</table>
+		<p>Nenhum item disponivel</p>
+	{% endif %}
+	
+
+	<h2 class="deg_h2">Itens</h2>
+	<div class="deg_fpanel_container">
+		<a class="btn btn-success" title="Novo Item">Criar Novo <span class="glyphicon glyphicon-plus"></snap></a>
+		<div class="deg_fpanel">
+			<div>
+				<a class="deg_fpanel_closer">X</a>
+				<h3>Novo Item</h3>
+				<form class="deg-addItem-form" method="POST" action="{% url 'restaurante:criar_item' cardapio.id %}">
+					{% csrf_token %}
+					<input name="nome" type="text" placeholder="Nome:"/>
+					<input name="ingredientes" type="text" placeholder="Ingredientes:"/><br/>
+					<input name="preco" type="text" placeholder="Preço:"/>
+					<input type="submit" value="Salvar"/>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	{% if itens %}
+		<table class="table" id="deg-item-table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Preço</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for item in itens %}
+				<tr>
+					<td>{{ item.id }}</td>
+					<td>{{ item.nome }}</td>
+					<td>{{ item.preco }}</td>
+					<td>
+						<div class="deg_c_container">
+							<div class="deg_fpanel_container">
+								<a class="btn btn-warning" title="Novo Item">Editar <span class="glyphicon glyphicon-pencil"></snap></a>
+								<div class="deg_fpanel">
+									<div>
+										<a class="deg_fpanel_closer">X</a>
+										<h3>Editar Item</h3>
+										<form class="deg-editItem-form" method="POST" action="{% url 'restaurante:editar_item' cardapio.id item.id %}">
+											{% csrf_token %}
+											<input name="nome" type="text" placeholder="Nome:" value="{{item.nome}}"/>
+											<input name="ingredientes" type="text" placeholder="Ingredientes:" value="{{item.ingredientes}}"/><br/>
+											<input name="preco" type="text" placeholder="Preço:" value="{{item.preco}}"/>
+											<input type="submit" value="Salvar"/>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="deg_fpanel_container">
+								<a class="btn btn-danger" title="Novo Item">Excluir <span class="glyphicon glyphicon-trash"></snap></a>
+								<div class="deg_fpanel">
+									<div>
+										<a class="deg_fpanel_closer">X</a>
+										<h3>Deletar Item</h3>
+										<form class="deg-deleteItem-form" method="POST" action="{% url 'restaurante:deletar_item' cardapio.id item.id %}">
+											{% csrf_token %}
+											<h4>Tem certeza que deseja excluir o item {{item.nome}} ?</h4>
+											<input name="id" type="hidden" value="{{item.id}}"/>
+											<input type="submit" value="Excluir"/>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>	
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<table class="table" id="deg-item-table">
+		</table>
+		<p>Nenhum item disponivel</p>
+	{% endif %}
+
+{% endblock %}
