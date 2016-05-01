@@ -1,0 +1,15 @@
+-extends 'index/hamlpy/base.haml'
+
+-block content
+	
+	%form.pure-form.pure-form-aligned
+		%fieldset
+			%legend Login
+			.pure-control-group
+				%label{for:'email'}
+				%input#email{type:'text'}
+			.pure-control-group
+				%label{for:'password'}
+				%input#password{type:'password'}
+			.pure-controls
+				%button.pure-button.pure-button-primary{type:'submit'} Submit

@@ -1,0 +1,25 @@
+- extends 'index/hamlpy/base.haml'
+
+- block content
+	:css
+		legend{
+			text-align: center;
+		}
+
+	.pure-g
+		.pure-u-1-5
+		.pure-u-3-5
+			%form.pure-form{method:'POST', action:'', role:'form'}
+				- csrf_token
+				%legend Cadastre-se na Degustoo
+				%fieldset.pure-group
+					%input.pure-input-1{type:'text', placeholder:'Nome'}
+					%input.pure-input-1{type:'text', placeholder:'Sobrenome'}
+					%input.pure-input-1{type:'text', placeholder:'Telefone'}
+				%filedset.pure-group
+					%input.pure-input-1{type:'text', placeholder:'Email'}
+					%input.pure-input-1{type:'password', placeholder:'Senha'}
+					%input.pure-input-1{type:'password', placeholder:'Confirmação senha'}
+				%button.pure-button.pure-input-1.pure-button-primary{type:'submit'} Entrar
+		.pure-u-1-5
+	

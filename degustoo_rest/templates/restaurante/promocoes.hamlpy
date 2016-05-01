@@ -1,0 +1,136 @@
+-extends 'restaurante/base-card.html'
+
+-block ng_app
+	ng-app="PromocaoApp"
+
+-block scripts
+	:css
+	:javascript
+		var app = angular.module('PromocaoApp', ['ngResource', 'ui.bootstrap']);
+
+		app.config(['$interpolateProvider', '$httpProvider', '$resourceProvider', function($interpolateProvider, $httpProvider, $resourceProvider){
+			$interpolateProvider.startSymbol('[[');
+			$interpolateProvider.endSymbol(']]');
+			$httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+			$httpProvider.defaults.xsrfCookieName = 'csrftoken';
+			$resourceProvider.defaults.stripTrailingSlashes = false;
+		}]);
+
+		app.factory('Promocao', ['$resource', function($resource){
+			return $resource(
+				'/ajax/restaurante/cardapio/:id_promocao/item/:id',
+				null,
+				{'update':{method:'PUT'}}
+			);
+		}]);
+
+		app.controller('PromocaoController', ['$scope', '$uibModal', 'Promocao', function($scope, $uibModal, Promocao){
+
+			$scope.carregar_lista = function(){
+				Promocao.query(
+					{id_promocao:{{promocoes.id}}}, 
+					function(data){
+						console.log(data); $scope.lista_itens=data;
+					},
+					function(error){console.log(error);}
+				);
+			};
+
+			$scope.novo_item = function(data){
+				data.cardapio = {{promocoes.id}};
+				Promocao.save(
+					{id_promocao:{{promocoes.id}}},
+					data,
+					function(data){$scope.carregar_lista();},
+					function(errors){console.log(errors);}
+				);
+				$scope.item_novo = {};
+			};
+
+			$scope.open_edit_modal = function(item){
+				var modal = $uibModal.open({
+					templateUrl: 'edit_item_modal.html',
+					controller: 'PromocaoModalController',
+					scope: $scope,
+					resolve: {
+						item: function(){return angular.copy(item);}
+					}
+				});
+			};
+
+			$scope.open_delete_modal = function(item){
+				var modal = $uibModal.open({
+					templateUrl: 'remove_item_modal.html',
+					controller: 'PromocaoModalController',
+					scope: $scope,
+					resolve: {
+						item: function(){return angular.copy(item);}
+					}
+				});
+			};
+
+			$scope.carregar_lista();
+
+		}]);
+
+		app.controller('PromocaoModalController', ['$scope', '$uibModalInstance', 'Promocao', 'item', function($scope, $uibModalInstance, Promocao, item){
+			$scope.selected_item = item;
+
+			$scope.close = function(){
+				$uibModalInstance.dismiss('Vai');
+			};
+
+			$scope.alterar_item = function(data){
+				Promocao.update(
+					{id_promocao:{{promocoes.id}}, id:item.id},
+					data,
+					function(data){$scope.carregar_lista(); $scope.close();},
+					function(errors){console.log(errors);}
+				);
+			};
+
+			$scope.remover_item = function(){
+				Promocao.delete(
+					{id_promocao:{{promocoes.id}}, id:item.id},
+					function(data){$scope.carregar_lista(); $scope.close();},
+					function(errors){console.log(errors);}
+				);
+			};
+		}]);
+
+-block content
+
+	%script{type:'text/ng-template', id:'edit_item_modal.html'}
+		%form.pure-form.pure-form-stacked.pure-g.modal-form
+			%fieldset
+				%legend.pure-u-1 Editar Cardapio
+				%input.pure-u-1{name:'nome', placeholder:'Titulo', ng-model:'selected_item.nome'}
+				%input.pure-u-1{name:'preco', placeholder:'Preço', ng-model:'selected_item.preco'}
+				%button.btn.btn-primary.pure-u-1{ng-click:'alterar_item(selected_item)'} Salvar
+				%button.btn.btn-danger.pure-u-1{ng-click:'close()'} Cancelar
+
+	%script{type:'text/ng-template', id:'remove_item_modal.html'}
+		.light
+			.alert.alert-danger
+				%strong
+					Ao excluir este combo todos os dados relativos ao mesmo serão perdidos.
+					Deseja continuar?
+			%button.btn.btn-primary{ng-click:'remover_item()'} Sim
+			%button.btn.btn-danger{ng-click:'close()'} Não
+
+	.content{ng-controller:'PromocaoController'}
+		%form.pure-form
+			%fieldset
+				%legend Adicionar Promoções
+				%input{placeholder:'Nome', ng-model:'item_novo.nome'}
+				%input{placeholder:'Preço', ng-model:'item_novo.preco'}			
+				%button.pure-button.pure-button-primary{type:'submit', ng-click:'novo_item(item_novo)'} Salvar
+
+		.list-container
+			.list{ng-repeat:'item in lista_itens'}
+				%h3 Nome:
+					%span{ng-bind:'item.nome'}
+				%h3 Preço:
+					%span{ng-bind:'item.preco'}
+				%button.pure-button.pure-button-primary{ng-click:'open_delete_modal(item)'} Remover
+				%button.pure-button.pure-button-primary{ng-click:'open_edit_modal(item)'} Editar Cardapio

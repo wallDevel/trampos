@@ -1,0 +1,153 @@
+!!! 5
+- load staticfiles
+%html
+    %head
+        %title
+            - block title
+                Degustoo
+        %link{rel:'stylesheet', href:'{% static "index/css/bootstrap.min.css" %}'}
+        %link{rel:'stylesheet', href:'{% static "index/css/degustoo.css" %}'}
+        %link{rel:'stylesheet', href:'{% static "index/css/style.css" %}'}
+        %link{href:'https://fonts.googleapis.com/css?family=Satisfy', rel:'stylesheet'}
+        %link{href:'https://fonts.googleapis.com/css?family=Roboto', rel:'stylesheet'}
+    	
+        %script{src:'{% static "index/js/jquery.min.js" %}'}
+        %script{src:'{% static "index/js/bootstrap.js" %}'}
+
+        :javascript
+            $(document).ready(function(){
+
+                $(".deg-lightbox_container").click(function(){
+                    $(this).children('.deg-lightbox').css("display", "block");
+                    /*$('.deg-lightbox').css("display", "block");*/
+                    $('#deg-overlay').css('display', 'block');
+                });
+
+                $('.deg-lightbox_closer').click(function(){
+                    /*$(this).parent().parent(".deg-lightbox").css("display", "none");*/
+                    /*$('.deg-lightbox').css("display", "none");*/
+                    /*$('#deg-overlay').css('display', 'none');*/
+                    console.log($(this).parent().parent().fadeOut());
+                    $('#deg-overlay').fadeOut();
+                });
+
+                $("#deg-overlay").click(function(){
+                    $('.deg-lightbox').css("display", "none");
+                    $(this).css("display", "none");
+                });
+
+            });
+
+        :css
+        	.top{	    
+                background-image: url("/static/index/img/hamback2.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+            .overlay{
+                background-color: rgba(0,0,0,0.5);
+                width: 100%;
+                height:100%;
+            }
+            .overlay *{
+                text-align: center;
+                color: white;
+            }
+            .top_content{
+                width: 100%;
+            }
+            .top_content .content{
+                margin: 0 auto;
+            }
+            .top_content h1{
+                font-family: 'Satisfy', cursive;
+                font-weight: normal;
+            }
+
+            .top_content h2{
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                font-size: 22px;
+            }
+
+            .deg-lightbox{
+                position: fixed;
+                margin:0;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background-color: red;
+                z-index: 9999;
+                display: none;
+            }
+
+            #deg-overlay{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(0,0,0,0.6);
+                z-index: 999;
+                display: none;
+            }
+
+            .transparencia{
+                background-color: none !important;
+                background-image: none !important;
+            }
+    %body
+    	.top
+            .overlay
+                .nav
+                   .navbar.navbar-inverse.transparencia{role:'navigation'}
+                        .container
+                            .navbar-header
+                                %button.navbar-toggle{data-toggle:'collapse', data-target:'.navbar-collapse'}
+                                    %span.icon-bar
+                                    %span.icon-bar
+                                    %span.icon-bar
+                                %a.navbar-brand{href:'{% url "index:index" %}'}
+                                    %img{src:'{% static "index/img/main-logo.png" %}', alt:'Degustoo'} &nbsp;
+                        
+                            .collapse.navbar-collapse.navbar-right
+                                %ul.nav.navbar-nav
+                                    %li
+                                        %a{href:'#'} Sobre nós
+                                    %li.deg-index-menu-parent
+                                        Donos de restaurante
+                                        %ul.dropdown-menu
+                                            %li
+                                                %a{href:'#'} Degustoo
+                                            %li
+                                                %a{href:'{% url "index:registro_restaurante" %}'} Cadastre-se
+                                    %li
+                                        %a{href:'#'} Contato
+                                    %li
+                                        %a{href:'{% url "index:registrar" %}'} Registrar
+                                    %li
+                                        %a{href:'{% url "index:login" %}'} Login
+                                    %li
+                                        .deg-lightbox_container
+                                            %a
+                                            .deg-lightbox
+                                                %div
+                                                    %h2.deg-lightbox_closer def-lightbox
+                                                    %p deg-lightbox content
+                .top_content
+                    .content
+                        %h1 Tá com fome? Peça sua comida online!
+                        %h2 Os melhores restaurantes da sua cidade estão aqui.
+                        .postcode
+                            %input#cepcode{type:'tel', maxlength:'8', name:'postcode', placeholder:'Informe seu CEP', keydown:'alert()'}
+                            %button#searchcep{type:'submit', name:'search CEP', value:'Buscar Restaurantes'}
+                            %a{href:'#'}
+                                %p Não sabe seu CEP? Clique aqui!
+                        #mobile-link
+                            %span Disponível também em
+                            %a#play-store{href:'#', target:'_blank', title:'Disponível na Play Store'} Disponível na Play Store
+                            %a#app-store{href:'#', target:'_blank', title:'Disponível na App Store'} Disponível na App Store
+                            %a#windows-store{href:'#', target:'_blank', title:'Disponível na Windows Store'} Disponível na Windows Store
+        .middle
+        .bottom

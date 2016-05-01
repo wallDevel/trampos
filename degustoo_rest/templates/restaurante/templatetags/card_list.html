@@ -1,0 +1,61 @@
+	{% if cardapios %}
+		<table class="table" id="deg-cardapio-table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Titulo</th>
+					<th>Tipo</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for cardapio in cardapios %}
+				<tr>
+					<td>{{ cardapio.id }}</td>
+					<td>{{ cardapio.titulo }}</td>
+					<td>{{ cardapio.tipo }}</td>
+					<td>
+						<div class="deg_c_container">
+							<a href="{{ cardapio.get_absolute_url }}" class="btn btn-success">Alterar <span class="glyphicon glyphicon-plus"></span></a>
+							<div class="deg_fpanel_container">
+								<a class="btn btn-warning" title="Novo Cardapio">Editar <span class="glyphicon glyphicon-pencil"></snap></a>
+								<div class="deg_fpanel">
+									<div>
+										<a class="deg_fpanel_closer">X</a>
+										<h3>Editar Cardapio</h3>
+										<form class="deg-editCardapio-form" method="POST" action="{% url 'restaurante:editar_cardapio' cardapio.id %}">
+											{% csrf_token %}
+											<input name="titulo" type="text" placeholder="Titulo:" value="{{cardapio.titulo}}"/>
+											<input name="tipo" type="text" placeholder="Tipo:" value="{{cardapio.tipo}}"/><br/>
+											<input name="imagem" type="file" value="{{cardapio.imagem}}">
+											<input type="submit" value="Salvar"/>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="deg_fpanel_container">
+								<a class="btn btn-danger" title="Novo Cardapio">Excluir <span class="glyphicon glyphicon-trash"></snap></a>
+								<div class="deg_fpanel">
+									<div>
+										<a class="deg_fpanel_closer">X</a>
+										<h3>Deletar Cardapio</h3>
+										<form class="deg-deleteCardapio-form" method="POST" action="{% url 'restaurante:deletar_cardapio' cardapio.id %}">
+											{% csrf_token %}
+											<h4>Tem certeza que deseja excluir o cardapio {{cardapio.titulo}} ?</h4>
+											<input name="id" type="hidden" value="{{cardapio.id}}"/>
+											<input type="submit" value="Excluir"/>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>	
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<table class="table" id="deg-cardapio-table">
+		</table>
+		<p>Nenhum cardápio disponível</p>
+	{% endif %}

@@ -1,0 +1,10 @@
+{% extends 'restaurante/base-card.html' %}
+
+{% load item_tags %}
+
+{% block content %}
+	<h1>{{subcardapio.titulo}}</h1>
+
+	{% sub_item_list subcardapio %}
+	
+{% endblock %}

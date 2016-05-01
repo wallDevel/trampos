@@ -1,0 +1,1 @@
+(function(){angular.module('main',[]).controller('mainController',function(){return $scope.nome="amor";});}).call(this);

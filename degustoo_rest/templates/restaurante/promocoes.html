@@ -1,0 +1,23 @@
+{% extends 'restaurante/base-card.html' %}
+
+{% load static %}
+
+{% block ng_app %}RestauranteAPP{% endblock %}
+
+{% block content %}
+	<div ng-controller="cardController as crdCtrl">
+		<div ng-controller="itemFromMenuController as itmCtrl">
+			<div ng-init="itens = itmCtrl.listCardItem({{promocoes.id}})">
+				<form>
+					<input type="hidden" name="cardapio" ng-init="newItem.cardapio={{promocoes.id}}"/>
+					<input type="text" name="nome" ng-model="newItem.nome"></input>
+					<input type="text" name="preco" ng-model="newItem.preco"></input>
+					<button type="submit" ng-click="itmCtrl.addCardItem({{promocoes.id}})">Salvar</button>
+				</form>
+				<div ng-view> 
+					<lista-item-cardapio ng-init="promocoes.pk={{promocoes.pk}}"></lista-item-cardapio> 
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

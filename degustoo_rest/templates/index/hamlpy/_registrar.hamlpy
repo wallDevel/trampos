@@ -1,0 +1,21 @@
+- extends 'index/hamlpy/base.haml'
+
+- block content
+	%form{action:'', method:'POST', role:'form'}
+		- csrf_token
+		= form.status
+		- for field in form.visible_fields
+			%div{class:'form-group {% if field.error %}has-error{% endif %}'}
+				%label.control-label.col-sm-2{for:'={field}'}
+					=field.label
+				.col-sm-10
+					=field
+					-if field.help_text
+						%span.help-block 
+							=field.help_text
+					-for error in field.erorrs
+						%label.control-label 
+							=error
+		.form-group
+			%input.btn.btn-primary{type:'submit', value:'Cadastrar-se'}
+			%a.btn.btn-default Cancelar

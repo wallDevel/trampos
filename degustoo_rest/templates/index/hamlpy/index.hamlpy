@@ -1,0 +1,24 @@
+- extends 'index/hamlpy/base.haml'
+
+-block content
+	.deg-main-container
+		.deg-hungry
+			%h1 Chega de blá blá blá
+			%h1 Peça sua comida na degustoo
+			%h2 Os melhores restaurantes da sua cidade estão aqui
+
+			.deg-cep-form
+				%form
+					%input#cepcode{type:'tel', maxlength:'8', name:'postcode', placeholder:'Informe seu CEP', keydown:'alert()'}
+					%button#searchcep{type:'submit', name:'search CEP', value:'Buscar Restaurantes'}
+						Buscar Restaurantes
+				%a#deg-postcode
+					%span Não sabe seu CEP? Clique aqui!
+			#mobile-link
+				%span Disponível também em
+				%a#play-store{href:'#', target:'_blank', title:'Disponível na Play Store'}
+					Disponível na Play Store
+                %a#app-store{href:'#', target:'_blank', title:'Disponível na App Store'}
+                	Disponível na App Store
+                %a#windows-store{href:'#', target:'_blank', title:'Disponível na Windows Store'}
+                	Disponível na Windows Store

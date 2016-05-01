@@ -1,0 +1,10 @@
+{% extends 'restaurante/base.html' %}
+
+{% block title %}Meu Restaurante{% endblock %}
+
+{% block content %}
+	<p>This is the restaurante's index template</p>
+
+	<!-- <a href=" 'cardapios' ">Página de cardápios</a> --> <!-- example without namespace -->
+	<a href="{% url 'restaurante:meus_cardapios' %}">Página de cardápios (namespace)</a> <!-- example with namespace -->
+{% endblock %}

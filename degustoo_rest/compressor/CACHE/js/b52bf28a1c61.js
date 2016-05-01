@@ -1,0 +1,1 @@
+(function(){alert('deu bom');}).call(this);

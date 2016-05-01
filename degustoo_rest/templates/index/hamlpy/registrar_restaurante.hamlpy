@@ -1,0 +1,146 @@
+- extends 'index/hamlpy/base.haml'
+
+-load compress
+
+- block scripts
+	:javascript
+		$(document).ready(function(){
+			$('.form_ajax').submit(function(evt){
+				evt.preventDefault();
+				$.ajax({
+					type: evt.target.method,
+					url: evt.target.action,
+					data: $(this).serialize(),
+					beforeSend: function(){
+						cleanErrorList();
+						$('input').removeClass('has-error');
+						window.scrollTo(0, 0);
+					},
+					success: function(data){
+						// Do something and show success message
+						$('#success').show();
+						setTimeout(function(){
+							$('#success').hide(250);
+						}, 3000);
+					},
+					error: function(data){
+						errors = JSON.parse(data.responseText);
+						for(e in errors){
+							id = '#' + e;
+							$(id).addClass('has-error');
+							$(id).parent('div').children('.error_list').append('<li>'+errors[e]+'</li>');
+						}
+						$('#error').show();
+						setTimeout(function(){
+							$('#error').hide(250);
+						}, 3000);
+					}
+				});
+			});
+
+			function cleanErrorList(){
+				$('.error_list').empty();
+			}
+
+		});
+
+- block styles
+	:css
+		form div{
+			margin: 2px 0 2px 0;
+		}
+		form input{
+			height: 45px;
+		}
+		.pure-g{
+			padding: 3px;
+		}
+		legend{
+			font-size: 16px;
+			text-align: center;
+			margin-top: 10px;
+		}
+		.has-error{
+			border-color: red !important;
+		}
+		.error_list{
+			color: red;
+		}
+		#success{
+			color: green;
+			display: none;
+		}
+		#error{
+			color: red;
+			display: none;
+		}
+
+- block content
+	
+	#success
+		%h2 Você foi cadastrado com sucesso! Aguarde a Degustoo entrar em contato com o seu restaurante.
+	#error
+		%h2 Existem erros no seu formulário. Por favor, corrija os mesmos e prossiga com o cadastro.
+
+	.pure-g
+		.pure-u-1-5
+		.pure-u-3-5
+			%legend
+				Cadastre seu restaurante na Degustoo e tenha seus produtos disponíveis na web e na aplicação mobile
+			%form.form_ajax.pure-form.pure-g{method:'POST', action:'/registro_restaurantes/', role:'form'}
+				- csrf_token
+				.pure-u-1
+					%input#nome.pure-input-1{type:'text', placeholder:'Nome do restaurante', name:'nome'}
+					%ul.error_list
+				.pure-u-1
+					%input#telefone.pure-input-1{type:'text', placeholder:'Telefone do restaurante', name:'telefone'}
+					%ul.error_list
+				.pure-u-1
+					%input#cnpj.pure-input-1{type:'text', placeholder:'CNPJ do restaurante', name:'cnpj'}
+					%ul.error_list
+				.pure-u-1
+					%input#email.pure-input-1{type:'text', placeholder:'E-mail do restaurante', name:'email'}
+					%ul.error_list
+				.pure-u-4-5
+					%input#rua.pure-input-1{type:'text', placeholder:'Endereço do restaurante', name:'rua'}
+					%ul.error_list
+				.pure-u-1-5
+					%input#numero.pure-input-1{type:'text', placeholder:'Número', name:'numero'}
+					%ul.error_list
+				.pure-u-3-5
+					%input#bairro.pure-input-1{type:'text', placeholder:'Bairro', name:'bairro'}
+					%ul.error_list
+				.pure-u-2-5
+					%input#cep.pure-input-1{type:'text', placeholder:'CEP', name:'cep'}
+					%ul.error_list
+				.pure-u-2-5
+					%input#estado.pure-input-1{type:'text', placeholder:'Estado', name:'estado'}
+					%ul.error_list
+				.pure-u-3-5
+					%input#municipio.pure-input-1{type:'text', placeholder:'Cidade', name:'municipio'}
+					%ul.error_list
+				.pure-u-1
+					%input#tipo_cozinha.pure-input-1{type:'text', placeholder:'Tipo de cozinha'}
+					%ul.error_list
+				.pure-u-1.
+					.pure-u-1-2
+						%span Restaurante faz delivery?
+					.pure-u-1-2
+						%select#do_delivery.pure-input-1-2{placeholder:'Restaurante faz delivery?'}
+							%option Sim
+							%option Não
+				.pure-u-1
+					%hr
+				.pure-u-1
+					%input#nome_completo_responsavel.pure-input-1{type:'text', placeholder:'Nome completo do responsável', name:'nome_completo_responsavel'}
+					%ul.error_list
+				.pure-u-1
+					%input#email_responsavel.pure-input-1{type:'text', placeholder:'Email do responsável', name:'email_responsavel'}
+					%ul.error_list
+				.pure-u-1
+					%input#telefone_responsavel.pure-input-1{type:'text', placeholder:'Telefone do responsável', name:'telefone_responsavel'}
+					%ul.error_list
+
+				.pure-u-1
+					%button.pure-button.pure-input-1.pure-button-primary{type:'submit'} Enviar dados
+		.pure-u-1-5

@@ -1,0 +1,25 @@
+{% extends 'restaurante/base-card.html' %}
+
+{% load card_tags %}
+
+{% block content %}
+
+	<h2 class="deg_h2">Meus Cardapios</h2>
+	<div class="deg_fpanel_container">
+		<a class="btn btn-success" title="Novo Cardapio">Criar Cardapio <span class="glyphicon glyphicon-plus"></snap></a>
+		<div class="deg_fpanel">
+			<div>
+				<a class="deg_fpanel_closer">X</a>
+				<h3>Novo Cardapio</h3>
+				<form method="post" action="{% url 'restaurante:criar_cardapio' %}" class="deg-addCardapio-form">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<input type="submit" value="salvar">
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	{% card_list restaurante %}
+
+{% endblock %}

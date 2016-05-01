@@ -1,0 +1,411 @@
+-extends 'restaurante/base-card.html'
+
+-load compress
+-load staticfiles
+
+-block ng_app
+	ng-app="CardapioModule"
+
+-block scripts
+
+	:javascript
+		var app = angular.module('CardapioModule', ['ui.bootstrap', 'ngResource']);
+
+		app.config(['$interpolateProvider', '$httpProvider', '$resourceProvider', function($interpolateProvider, $httpProvider, $resourceProvider){
+			$interpolateProvider.startSymbol('[[');
+			$interpolateProvider.endSymbol(']]');
+			$httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+			$httpProvider.defaults.xsrfCookieName = 'csrftoken';
+			$resourceProvider.defaults.stripTrailingSlashes = false;
+		}]);
+
+		app.factory('Item', ['$resource', function($resource){
+			return $resource(
+				'/ajax/restaurante/cardapio/:id_cardapio/item/:id',
+				null,
+				{'update': {method: 'PUT'}}
+			);
+		}]);
+		
+		app.factory('Opcao', ['$resource', function($resource){
+			return $resource(
+				'/ajax/restaurante/cardapio/:id_cardapio/opcao/:id',
+				null,
+				{'update': {method: 'PUT'}}
+			);
+		}]);
+		
+		app.factory('Subcardapio', ['$resource', function($resource){
+			return $resource(
+				'/ajax/restaurante/cardapio/:id_cardapio/subcardapio/:id',
+				null,
+				{'update': {method: 'PUT'}}
+			);
+		}]);
+
+		app.controller('ItemCtrl', ['$scope', '$uibModal', 'Item', function($scope, $uibModal, Item){
+
+			$scope.carregar_lista = function(){
+				Item.query(
+					{id_cardapio:{{cardapio.id}}},
+					function(data){
+						console.log(data); $scope.lista_itens = data;
+					}
+				);
+			};
+
+			$scope.novo_item = function(item){
+				item.cardapio = {{cardapio.id}};
+				Item.save(
+					{id_cardapio:{{cardapio.id}}},
+					item,
+					function(data){
+						console.log(data); $scope.carregar_lista();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+
+			$scope.open_edit_modal = function(item){
+				var modal = $uibModal.open({
+					templateUrl: 'item_edit_modal.html',
+					controller: 'modalItemCtrl',
+					scope: $scope,
+					resolve: {
+						item: function(){return angular.copy(item);}
+					}
+				});
+			};
+
+			$scope.open_delete_modal = function(item){
+				var modal = $uibModal.open({
+					templateUrl: 'item_delete_modal.html',
+					controller: 'modalItemCtrl',
+					scope: $scope,
+					resolve: {
+						item: function(){return angular.copy(item);}
+					}
+				});
+			};
+
+			$scope.carregar_lista();
+
+		}]);
+
+		app.controller('modalItemCtrl', ['$scope', '$uibModalInstance', 'Item', 'item', function($scope, $uibModalInstance, Item, item){
+
+			$scope.selected_item = item;
+
+			$scope.close = function(){
+				$uibModalInstance.dismiss();
+			};
+
+			$scope.alterar_item = function(data){
+				Item.update(
+					{id_cardapio:{{cardapio.id}}, id:item.id},
+					data,
+					function(data){
+						console.log(data); $scope.carregar_lista(); $scope.close();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+
+			$scope.remover_item = function(){
+				Item.delete(
+					{id_cardapio:{{cardapio.id}}, id:item.id},
+					function(data){
+						console.log(data); $scope.carregar_lista(); $scope.close();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+		}]);
+
+		app.controller('OpcaoCtrl', ['$scope', '$uibModal', 'Opcao', function($scope, $uibModal, Opcao){
+			
+			$scope.carregar_lista = function(){
+				Opcao.query(
+					{id_cardapio:{{cardapio.id}}},
+					function(data){
+						console.log(data); $scope.lista_opcoes = data;
+					}
+				);
+			};
+
+			$scope.nova_opcao = function(opcao){
+				opcao.cardapio = {{cardapio.id}};
+				Opcao.save(
+					{id_cardapio:{{cardapio.id}}},
+					opcao,
+					function(data){
+						console.log(data); $scope.carregar_lista();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+
+			$scope.open_edit_modal = function(opcao){
+				var modal = $uibModal.open({
+					templateUrl: 'opcao_edit_modal.html',
+					controller: 'modalOpcaoCtrl',
+					scope: $scope,
+					resolve: {
+						opcao: function(){return angular.copy(opcao);}
+					}
+				});
+			};
+
+			$scope.open_delete_modal = function(opcao){
+				var modal = $uibModal.open({
+					templateUrl: 'opcao_delete_modal.html',
+					controller: 'modalOpcaoCtrl',
+					scope: $scope,
+					resolve: {
+						opcao: function(){return angular.copy(opcao);}
+					}
+				});
+			};
+
+			$scope.carregar_lista();
+
+		}]);
+
+		app.controller('modalOpcaoCtrl', ['$scope', '$uibModalInstance', 'Opcao', 'opcao', function($scope, $uibModalInstance, Opcao, opcao){
+
+			$scope.selected_opcao = opcao;
+
+			$scope.close = function(){
+				$uibModalInstance.dismiss();
+			};
+
+			$scope.alterar_opcao = function(data){
+				Opcao.update(
+					{id_cardapio:{{cardapio.id}}, id:opcao.id},
+					data,
+					function(data){
+						console.log(data); $scope.carregar_lista(); $scope.close();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+
+			$scope.remover_opcao = function(){
+				Opcao.delete(
+					{id_cardapio:{{cardapio.id}}, id:opcao.id},
+					function(data){
+						console.log(data); $scope.carregar_lista(); $scope.close();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+
+		}]);
+
+		app.controller('SubcardapioCtrl', ['$scope', '$uibModal', 'Subcardapio', function($scope, $uibModal, Subcardapio){
+
+			$scope.carregar_lista = function(){
+				Subcardapio.query(
+					{id_cardapio:{{cardapio.id}}},
+					function(data){
+						console.log(data); $scope.lista_subcardapios = data;
+					}
+				);
+			};
+
+			$scope.novo_subcardapio = function(subcardapio){
+				subcardapio.cardapio = {{cardapio.id}};
+				Subcardapio.save(
+					{id_cardapio:{{cardapio.id}}},
+					subcardapio,
+					function(data){
+						console.log(data); $scope.carregar_lista();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+
+			$scope.open_edit_modal = function(subcardapio){
+				var modal = $uibModal.open({
+					templateUrl: 'subcardapio_edit_modal.html',
+					controller: 'modalSubcardapioCtlr',
+					scope: $scope,
+					resolve: {
+						subcardapio: function(){return angular.copy(subcardapio);}
+					}
+				});
+			};
+
+			$scope.open_delete_modal = function(subcardapio){
+				var modal = $uibModal.open({
+					templateUrl: 'subcardapio_delete_modal.html',
+					controller: 'modalSubcardapioCtlr',
+					scope: $scope,
+					resolve: {
+						subcardapio: function(){return angular.copy(subcardapio);}
+					}
+				});
+			};
+
+			$scope.carregar_lista();
+
+		}]);
+
+		app.controller('modalSubcardapioCtlr', ['$scope', '$uibModalInstance', 'Subcardapio', 'subcardapio', function($scope, $uibModalInstance, Subcardapio, subcardapio){
+
+			$scope.selected_subcardapio = subcardapio;
+
+			$scope.close = function(){
+				$uibModalInstance.dismiss();
+			};
+
+			$scope.alterar_subcardapio = function(data){
+				Subcardapio.update(
+					{id_cardapio:{{cardapio.id}}, id:subcardapio.id},
+					data,
+					function(data){
+						console.log(data); $scope.carregar_lista(); $scope.close();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+
+			$scope.remover_subcardapio = function(){
+				Subcardapio.delete(
+					{id_cardapio:{{cardapio.id}}, id:subcardapio.id},
+					function(data){
+						console.log(data); $scope.carregar_lista(); $scope.close();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+
+		}]);
+
+-block content
+
+	%script{type:'text/ng-template', id:'item_edit_modal.html'}
+		%form.pure-form.pore-form-stacked.pure-g.modal-form
+			%fieldset
+				%legend.pure-u-1 Editar ---
+				%input.pure-u-1{name:'nome', placeholder:'Nome', ng-model:'selected_item.nome'}
+				%input.pure-u-1{name:'preco', placeholder:'Preço', ng-model:'selected_item.preco'}
+				%input.pure-u-1{name:'ingredientes', placeholder:'Ingredientes', ng-model:'selected_item.ingredientes'}
+				%button.btn.btn-primary.pure-u-1{ng-click:'alterar_item(selected_item)'} Salvar
+				%button.btn.btn-danger.pure-u-1{ng-click:'close()'} Cancelar
+
+	%script{type:'text/ng-template', id:'item_delete_modal.html'}
+		.light
+			.alert.alert-danger
+				%strong
+					Ao excluir este item todos os dados relativos ao mesmo serão perdidos.
+					Deseja continuar?
+			%button.btn.btn-primary{ng-click:'remover_item()'} Sim
+			%button.btn.btn-danger{ng-click:'close()'} Não
+
+	%script{type:'text/ng-template', id:'opcao_edit_modal.html'}
+		%form.pure-form.pore-form-stacked.pure-g.modal-form
+			%fieldset
+				%legend.pure-u-1 Editar ---
+				%input.pure-u-1{name:'rotulo', placeholder:'Rótulo', ng-model:'selected_opcao.rotulo'}
+				%button.btn.btn-primary.pure-u-1{ng-click:'alterar_opcao(selected_opcao)'} Salvar
+				%button.btn.btn-danger.pure-u-1{ng-click:'close()'} Cancelar
+
+	%script{type:'text/ng-template', id:'opcao_delete_modal.html'}
+		.light
+			.alert.alert-danger
+				%strong
+					Ao excluir estaq opção todos os dados relativos à mesma serão perdidos.
+					Deseja continuar?
+			%button.btn.btn-primary{ng-click:'remover_opcao()'} Sim
+			%button.btn.btn-danger{ng-click:'close()'} Não
+
+	%script{type:'text/ng-template', id:'subcardapio_edit_modal.html'}
+		%form.pure-form.pore-form-stacked.pure-g.modal-form
+			%fieldset
+				%legend.pure-u-1 Editar ---
+				%input.pure-u-1{name:'titulo', placeholder:'Título', ng-model:'selected_subcardapio.titulo'}
+				%button.btn.btn-primary.pure-u-1{ng-click:'alterar_subcardapio(selected_subcardapio)'} Salvar
+				%button.btn.btn-danger.pure-u-1{ng-click:'close()'} Cancelar
+
+	%script{type:'text/ng-template', id:'subcardapio_delete_modal.html'}
+		.light
+			.alert.alert-danger
+				%strong
+					Ao excluir este subcardapio todos os dados relativos ao mesmo serão perdidos.
+					Deseja continuar?
+			%button.btn.btn-primary{ng-click:'remover_subcardapio()'} Sim
+			%button.btn.btn-danger{ng-click:'close()'} Não
+
+
+	<uib-tabset active="activeJustified" justified="true">
+	    <uib-tab index="0" heading="Itens do Cardapio">
+	    	.list_container{ng-controller:'ItemCtrl'}
+	    		%form.pure-form
+	    			%fieldset
+	    				%legend Adicionar Item
+		    			%input{placeholder:'Nome', ng-model:'item_novo.nome'}
+		    			%input{placeholder:'Preço', ng-model:'item_novo.preco'}
+		    			%input{placeholder:'Ingredientes', ng-model:'item_novo.ingredientes'}
+		    			%button.pure-button.pure-button-primary{type:'submit', ng-click:'novo_item(item_novo)'} Salvar
+		    	.list{ng-repeat:'item in lista_itens'}
+		    		%h3 Nome:
+		    			%span{ng-bind:'item.nome'}
+		    		%h3 Preço:
+		    			%span{ng-bind:'item.preco'}
+		    		%h3 Ingredientes:
+		    			%span{ng-bind:'item.ingredientes'}
+		    		%button.pure-button.pure-button-primary{ng-click:'open_delete_modal(item)'} Remover
+		    		%button.pure-button.pure-button-primary{ng-click:'open_edit_modal(item)'} Editar
+	    </uib-tab>
+	    
+	    <uib-tab index="1" heading="Opções">
+	    	.list_container{ng-controller:'OpcaoCtrl'}
+	    		%form.pure-form
+	    			%fieldset
+	    				%legend Adicionar Opção
+		    			%input{placeholder:'Rótulo', ng-model:'opcao_nova.rotulo'}
+		    			%button.pure-button.pure-button-primary{type:'submit', ng-click:'nova_opcao(opcao_nova)'} Salvar
+
+		    	.list{ng-repeat:'opcao in lista_opcoes'}
+		    		%h3 Rótulo:
+		    			%span{ng-bind:'opcao.rotulo'}
+		    		%button.pure-button.pure-button-primary{ng-click:'open_delete_modal(opcao)'} Remover
+		    		%button.pure-button.pure-button-primary{ng-click:'open_edit_modal(opcao)'} Editar
+		    		%button.pure-button.pure-button-primary{ng-click:''} Editar Conteúdo
+	    </uib-tab>
+	    
+	    <uib-tab index="2" heading="Subcardapio">
+	    	.list_container{ng-controller:'SubcardapioCtrl'}
+	    		%form.pure-form
+	    			%fieldset
+	    				%legend Adicionar Subcardapio
+		    			%input{placeholder:'Titulo', ng-model:'subcardapio_novo.titulo'}
+		    			%button.pure-button.pure-button-primary{type:'submit', ng-click:'novo_subcardapio(subcardapio_novo)'} Salvar
+
+		    	.list{ng-repeat:'subcardapio in lista_subcardapios'}
+		    		%h3
+		    			%span{ng-bind:'subcardapio.titulo'}
+		    		%button.pure-button.pure-button-primary{ng-click:'open_delete_modal(subcardapio)'} Remover
+		    		%button.pure-button.pure-button-primary{ng-click:'open_edit_modal(subcardapio)'} Editar
+		    		%button.pure-button.pure-button-primary{ng-click:''} Editar Conteúdo
+	    </uib-tab>
+  	</uib-tabset>

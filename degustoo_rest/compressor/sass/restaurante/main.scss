@@ -1,0 +1,39 @@
+$ten: 10px;
+
+@mixin list{
+	padding: $ten;
+	margin: $ten;
+	background-color: #f7f7f7;
+	box-shadow: 0 0 7px rgba(0,0,0,.3);
+}
+
+form {
+	padding: 10px;
+	input, button, select{
+		margin-bottom: 5px !important;
+	}
+}
+
+legend{
+	text-align: center;
+}
+
+.list{
+	@include list;
+	h1, h2, h3, h4, h5, h6{
+		margin: 15px 0;
+	}
+	a {
+		text-decoration: none;
+	}
+}
+
+.modal-form{
+	margin: 7px;
+	display: block;
+	text-align: center;
+}
+
+.light{
+	padding: $ten;
+}

@@ -1,0 +1,270 @@
+/**********************************************************************************************************
+ **********************************************************************************************************
+ * Defa\ult tags
+ **********************************************************************************************************
+ *********************************************************************************************************/
+body {
+  padding-top: 0;
+  padding: 0 !important; }
+
+h1 {
+  display: block;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold; }
+
+h2 {
+  display: block;
+  -webkit-margin-before: 0.83em;
+  -webkit-margin-after: 0.83em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold; }
+
+/**********************************************************************************************************
+ **********************************************************************************************************
+ * Bootstrap tags
+ **********************************************************************************************************
+ *********************************************************************************************************/
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+  border: 0 transparent; }
+
+.navbar-inverse {
+  background-image: -webkit-linear-gradient(top, #cc3300 0, #cc3300 100%);
+  background-image: linear-gradient(to bottom, #cc3300 0, #cc3300 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c',endColorstr='#ff222222',GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-color: transparent;
+  border-color: transparent; }
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #080808; }
+
+.navbar-inverse .navbar-nav > .active > a {
+  background-image: -webkit-linear-gradient(top, #d20000 0, #282828 100%);
+  background-image: linear-gradient(to bottom, #d20000 0, #282828 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222',endColorstr='#ff282828',GradientType=0);
+  -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.25); }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff; }
+
+.navbar-nav {
+  margin-top: 30px; }
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: transparent; }
+
+/**********************************************************************************************************
+ **********************************************************************************************************
+ * Degustoo tags
+ **********************************************************************************************************
+ *********************************************************************************************************/
+#deg-postcode {
+  margin-top: 15px;
+  color: white; }
+
+#deg-postcode:hover {
+  text-decoration: none; }
+
+a#play-store {
+  background: url('/static/index/img/play-store.png');
+  background-repeat: no-repeat;
+  background-color: rgba(40, 34, 30, 0.5);
+  width: 135px;
+  height: 50px;
+  background-position: center; }
+
+a#app-store {
+  background: url('/static/index/img/app-store.png');
+  background-repeat: no-repeat;
+  background-color: rgba(40, 34, 30, 0.5);
+  width: 135px;
+  height: 50px;
+  background-position: center; }
+
+a#windows-store {
+  background: url('/static/index/img/windows-store.png');
+  background-repeat: no-repeat;
+  background-size: 110px;
+  background-color: rgba(40, 34, 30, 0.5);
+  width: 135px;
+  height: 50px;
+  background-position: center; }
+
+#mobile-link {
+  position: relative;
+  top: 60px;
+  text-align: center;
+  box-sizing: border-box; }
+  #mobile-link a {
+    margin: 0 1.4em 0;
+    display: inline-block;
+    width: 135px;
+    height: 50px;
+    text-indent: -99999999px;
+    background-color: rgba(40, 34, 30, 0.5);
+    border-radius: 2px; }
+  #mobile-link span {
+    display: block;
+    color: #fff;
+    font-size: 10pt;
+    margin-bottom: 10px; }
+
+button#searchcep {
+  background: #00B800;
+  width: 300px;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  border: green;
+  font-weight: bolder;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 2px; }
+
+.deg-form a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #fff;
+  font-size: 12px;
+  font-family: Helvetica; }
+
+.deg-regform input, .deg-regform select {
+  margin-bottom: 5px; }
+
+input#cepcode {
+  width: 300px;
+  height: 50px;
+  margin-top: 30px;
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 10px; }
+
+button#searchcep:hover {
+  background-color: green;
+  transition: 0.4s; }
+
+.deg-main-container {
+  background-image: url('/static/index/img/bgpizza.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 600px; }
+
+.deg-hungry {
+  padding-top: 10px;
+  position: relative;
+  width: 100%;
+  height: 600px;
+  top: 0;
+  margin: auto;
+  text-align: center;
+  box-sizing: border-box;
+  color: #fff;
+  text-shadow: 0px 0px 10px rgba(40, 34, 30, 0.9);
+  background-color: rgba(40, 34, 30, 0.7); }
+
+.deg-cep-form {
+  position: relative;
+  background: rgba(40, 34, 30, 0.3);
+  top: 10px;
+  width: 400px;
+  height: 200px;
+  margin: auto;
+  border-radius: 1px;
+  text-align: center;
+  box-shadow: 0px 0px 20px #7A7A7A; }
+
+.deg-form-title {
+  text-align: center;
+  background-color: #484848;
+  margin-bottom: 0;
+  padding: 12px; }
+  .deg-form-title h2 {
+    color: #CCCC33;
+    margin-top: 0;
+    margin-bottom: 0; }
+
+.deg-form {
+  background-color: #EAEAEA;
+  padding: 18px; }
+  .deg-form input {
+    border-radius: 5px;
+    margin: 0 0 3px 0; }
+
+.deg-container {
+  margin: 0; }
+
+.deg-body {
+  display: flex;
+  background-color: white; }
+
+.deg-menu {
+  width: 20%;
+  float: left;
+  display: block;
+  border-top: 0;
+  border-style: solid;
+  border-color: #CC3300;
+  margin: 0;
+  padding: 0;
+  background-color: #3e3e3e; }
+  .deg-menu a {
+    /*color: #FFEAD8;*/
+    color: white;
+    display: block;
+    padding: inherit;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s; }
+  .deg-menu a:hover {
+    text-decoration: none;
+    color: #C1C1C1;
+    text-shadow: 0 -1px 5px #000;
+    transform: translate(15px, 0px); }
+  .deg-menu ul {
+    padding: 0;
+    margin: 0; }
+  .deg-menu li {
+    list-style: none;
+    padding: 8px;
+    font-size: 18px;
+    background-color: #3E3E3E;
+    color: white;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s; }
+  .deg-menu li > ul {
+    display: none;
+    padding: 0;
+    margin: 0; }
+
+li.deg-li-parent {
+  padding: 13px; }
+
+.deg-index-menu-li-parent {
+  padding: 15px;
+  color: white; }
+  .deg-index-menu-li-parent > ul {
+    display: none; }
+
+.deg-content {
+  width: 80%;
+  float: left;
+  display: block; }
+
+/*# sourceMappingURL=3acq1a0b.css.map */

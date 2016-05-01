@@ -1,0 +1,24 @@
+{% load staticfiles %}
+
+<div class='pure-g content-ribbon'>
+	{% for cardapio in cardapios %}
+	<div class='pure-u-1-4'>
+		{% if cardapio.imagem %}
+		<p>Tem Imagem</p>
+		{% else %}
+		<img src="{% static 'index/img/cardapio.jpg' %}" width='200'>
+		{% endif %}
+	</div>
+	<div class='pure-u-3-4'>
+		<ul>
+			<li>
+				Nome: {{ cardapio.titulo }}
+			</li>
+			<li>
+				Tipo: {{ cardapio.tipo }}
+			</li>
+		</ul>
+	</div>
+	{% empty %}
+	{% endfor %}
+</div>

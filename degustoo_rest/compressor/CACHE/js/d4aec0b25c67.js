@@ -1,0 +1,1 @@
+(function(){var menu,treta,val;alert('gente fedida');menu=34;treta=true;if(treta){val=45;}}).call(this);

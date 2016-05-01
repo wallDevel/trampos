@@ -1,0 +1,11 @@
+-extends 'index/hamlpy/base.haml'
+
+-block content
+	.deg-regform
+		- csrf_token
+		- for field in form.visible_fields
+			.form-group
+				%label.col-sm-2{for:'={field}'}
+					=field.label
+				.col-sm-10
+					=field

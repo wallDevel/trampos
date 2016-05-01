@@ -1,0 +1,1 @@
+(function(){angular.module('main',[]).config(['$httpProvider','$interpolateProvider',function($httpProvider,$interpolateProvider){$interpolateProvider.startSymbol('[[');$interpolateProvider.endSymbol(']]');$httpProvider.defaults.xsrfHeaderName='X-CSRFToken';$httpProvider.defaults.xsrfCookieName='csrftoken';}]);}).call(this);

@@ -1,0 +1,11 @@
+{% extends 'restaurante/base-card.html' %}
+
+{% block content %}
+	
+	{% for item in combos.getEvery_item %}
+	<p>{{ item.nome }}</p>
+	{% empty %}
+	<p>Nenhum combo disponível</p>
+	{% endfor %}
+
+{% endblock %}

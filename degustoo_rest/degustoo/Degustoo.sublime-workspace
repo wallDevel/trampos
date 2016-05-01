@@ -1,0 +1,1096 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"contrib	module"
+			],
+			[
+				"valida",
+				"ValidationError	class"
+			],
+			[
+				"fo",
+				"forms	module"
+			],
+			[
+				"User",
+				"UserCreationForm	class"
+			],
+			[
+				"l",
+				"label	Tag"
+			],
+			[
+				"send",
+				"send_mail_template	function"
+			],
+			[
+				"message",
+				"message_html	statement"
+			],
+			[
+				"E",
+				"EmailMultiAlternatives	class"
+			],
+			[
+				"de",
+				"defaultfilters	module"
+			],
+			[
+				"get_",
+				"get_object_or_404	function"
+			],
+			[
+				"url",
+				"urlpatterns	statement"
+			],
+			[
+				"s",
+				"static	module"
+			],
+			[
+				"Course",
+				"CourseAdmin	class"
+			],
+			[
+				"c",
+				"courses	module"
+			],
+			[
+				"C",
+				"CourseManager	class"
+			],
+			[
+				"pre",
+				"prepareAjaxErrorMessage	function"
+			],
+			[
+				"auto",
+				"auto_now	param"
+			],
+			[
+				"Http",
+				"HttpResponse	class"
+			],
+			[
+				"smart",
+				"smart_text	function"
+			],
+			[
+				"force",
+				"force_text	function"
+			],
+			[
+				"views",
+				"views_default	module"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"top",
+				"top_content"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"ba",
+				"background-image"
+			],
+			[
+				"bac",
+				"background-image: 〔property〕"
+			],
+			[
+				"trans",
+				"transparencia"
+			],
+			[
+				"fad",
+				"fadeOut〔function〕"
+			],
+			[
+				"deg-ligh",
+				"deg-lightbox_container"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"cpf",
+				"cpf_responsavel"
+			],
+			[
+				"fi",
+				"fields"
+			],
+			[
+				"passw",
+				"password2	statement"
+			],
+			[
+				"pa",
+				"password2	statement"
+			],
+			[
+				"pass",
+				"password1	statement"
+			],
+			[
+				"max",
+				"max_length	None"
+			],
+			[
+				"get",
+				"getEvery_item	function"
+			],
+			[
+				"getEve",
+				"getEvery_item"
+			],
+			[
+				"Ma",
+				"ManyToManyField	class"
+			],
+			[
+				"Text",
+				"TextInput	class"
+			],
+			[
+				"form",
+				"form-control"
+			],
+			[
+				"Email",
+				"EmailInput	class"
+			],
+			[
+				"min",
+				"min_length	None"
+			],
+			[
+				"build",
+				"buildItemOpcaoTable	function"
+			],
+			[
+				"Opcao",
+				"OpcaoMixin	class"
+			],
+			[
+				"Carda",
+				"CardapioMixin	class"
+			],
+			[
+				"Resta",
+				"RestauranteMixin	class"
+			],
+			[
+				"prepare",
+				"prepareAjaxSuccessData"
+			],
+			[
+				"buildItem",
+				"buildItemOpcaoTable"
+			],
+			[
+				"Opca",
+				"OpcaoMixin"
+			],
+			[
+				"Htt",
+				"HttpResponse	class"
+			],
+			[
+				"mi",
+				"mixins	module"
+			],
+			[
+				"sub",
+				"subcardapios	statement"
+			],
+			[
+				"prepa",
+				"prepareAjaxErrorMessage	function"
+			],
+			[
+				"a",
+				"ajax	module"
+			],
+			[
+				"da",
+				"dataLength	param"
+			],
+			[
+				"lower",
+				"lowerSubmenuTitle	statement"
+			],
+			[
+				"set",
+				"setPrice"
+			],
+			[
+				"lo",
+				"lowerOptionLabel	statement"
+			],
+			[
+				"getE",
+				"getEveryOptionFromMenu	function"
+			],
+			[
+				"chi",
+				"children〔function〕"
+			],
+			[
+				"_buil",
+				"_buildItemOpcaoTable	function"
+			],
+			[
+				"_bu",
+				"_buildItemTable	function"
+			],
+			[
+				"th",
+				"th	Tag"
+			],
+			[
+				"no",
+				"nome"
+			],
+			[
+				"nome",
+				"nome_fantasia"
+			],
+			[
+				"in",
+				"ingredientes"
+			],
+			[
+				"Cardapio",
+				"CardapioMixin"
+			],
+			[
+				"is",
+				"is_valid"
+			],
+			[
+				"_",
+				"_buildSubcardapioTable"
+			],
+			[
+				"render",
+				"render"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"res",
+				"restaurante"
+			],
+			[
+				"to",
+				"token"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"deg",
+				"deg_creator_form"
+			],
+			[
+				"mode",
+				"ModelForm"
+			],
+			[
+				"Item",
+				"ItemSubcardapioMixin"
+			],
+			[
+				"Ht",
+				"HttpResponse"
+			],
+			[
+				"Op",
+				"OpcaoMixin"
+			],
+			[
+				"Sub",
+				"SubcardapioMixin"
+			],
+			[
+				"ren",
+				"render"
+			],
+			[
+				"H",
+				"HttpResponse"
+			],
+			[
+				"Editar",
+				"EditarCardapio"
+			],
+			[
+				"grandezas",
+				"grandezas_variaveis"
+			],
+			[
+				"Form",
+				"FormGrandezaFixaDefault"
+			],
+			[
+				"Car",
+				"CardapioMixin"
+			],
+			[
+				"ex",
+				"except"
+			],
+			[
+				"td",
+				"td"
+			],
+			[
+				"grande",
+				"grandezas_variaveis"
+			],
+			[
+				"gra",
+				"grandezas_fixas"
+			],
+			[
+				"ht",
+				"Http404"
+			],
+			[
+				"editar_carda",
+				"editar_cardapio_teste"
+			],
+			[
+				"item",
+				"item_list"
+			],
+			[
+				"Lo",
+				"LoginRequiredMixin"
+			],
+			[
+				"cl",
+				"cleaned_data"
+			],
+			[
+				"login",
+				"loginForm"
+			],
+			[
+				"en",
+				"en"
+			],
+			[
+				"cardapio_",
+				"cardapio_id"
+			],
+			[
+				"car",
+				"cardapio"
+			],
+			[
+				"Gran",
+				"GrandezaVariavel"
+			],
+			[
+				"user",
+				"useremail"
+			],
+			[
+				"Login",
+				"LoginForm"
+			],
+			[
+				"aut",
+				"authenticate"
+			],
+			[
+				"is_",
+				"is_staff"
+			],
+			[
+				"Model",
+				"ModelForm"
+			],
+			[
+				"Usu",
+				"Usuario"
+			],
+			[
+				"Usua",
+				"UsuarioAdmin"
+			],
+			[
+				"t",
+				"timezone"
+			],
+			[
+				"card",
+				"card_id"
+			],
+			[
+				"is_s",
+				"is_string"
+			],
+			[
+				"class",
+				"class_name"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"__",
+				"__SITE_PATH"
+			],
+			[
+				"site",
+				"site_path"
+			],
+			[
+				"not",
+				"notification"
+			],
+			[
+				"num",
+				"numero_cartao"
+			],
+			[
+				"DB",
+				"DB_NAME"
+			],
+			[
+				"mysqli_",
+				"mysqli_connect"
+			],
+			[
+				"template",
+				"templateUrl"
+			],
+			[
+				"error",
+				"error_empty_fields"
+			],
+			[
+				"conta",
+				"conta_tipo"
+			],
+			[
+				"ag",
+				"agencia"
+			],
+			[
+				"em",
+				"email"
+			],
+			[
+				"te",
+				"telefone"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"m",
+				"municipio"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"pytho",
+				"Set Syntax: Python"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package control install",
+				"Package Control: Install Package"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
+			],
+			[
+				"HTML",
+				"Set Syntax: HTML"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"h",
+				"Set Syntax: HTML"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			],
+			[
+				"md",
+				"Set Syntax: Markdown"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"PHP",
+				"Set Syntax: PHP"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"ht",
+				"Set Syntax: HTML"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"c+",
+				"Set Syntax: C++"
+			],
+			[
+				"c",
+				"Set Syntax: C"
+			],
+			[
+				"C+",
+				"Set Syntax: C++"
+			],
+			[
+				"jav",
+				"Set Syntax: Java"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 631.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/projetos/venv/simplemoc/simplemoc/accounts/views.py",
+		"/C/projetos/venv/comandos.txt",
+		"/C/projetos/venv/simplemoc/simplemoc/accounts/templates/accounts/register.html",
+		"/C/projetos/venv/simplemoc/simplemoc/accounts/templates/accounts/login.html",
+		"/C/projetos/venv/simplemoc/simplemoc/accounts/urls.py",
+		"/C/projetos/venv/simplemoc/simplemoc/accounts/forms.py",
+		"/C/projetos/venv/simplemoc/simplemoc/settings.py",
+		"/C/projetos/venv/simplemoc/simplemoc/core/templates/base.html",
+		"/C/projetos/venv/simplemoc/simplemoc/courses/forms.py",
+		"/C/projetos/venv/simplemoc/simplemoc/courses/templates/courses/contact_email.html",
+		"/C/projetos/venv/simplemoc/simplemoc/core/mail.py",
+		"/C/projetos/venv/simplemoc/simplemoc/core/urls.py",
+		"/C/projetos/venv/simplemoc/simplemoc/urls.py",
+		"/C/projetos/venv/simplemoc/simplemoc/courses/models.py",
+		"/C/projetos/venv/simplemoc/simplemoc/courses/views.py",
+		"/C/projetos/venv/simplemoc/simplemoc/courses/templates/courses/details.html",
+		"/C/projetos/venv/simplemoc/simplemoc/core/static/css/styles.css",
+		"/C/Users/Malquiel/AppData/Local/Temp/Rar$DRa0.733/simplemooc/simplemooc/courses/templates/courses/details.html",
+		"/C/Users/Malquiel/AppData/Local/Temp/Rar$DRa0.257/simplemooc/simplemooc/core/static/css/styles.css",
+		"/C/projetos/venv/simplemoc/simplemoc/courses/templates/courses/index.html",
+		"/C/projetos/venv/simplemoc/simplemoc/courses/urls.py",
+		"/C/Python34/lib/site-packages/django/utils/deconstruct.py",
+		"/C/projetos/venv/simplemoc/simplemoc/core/templates/contact.html",
+		"/C/projetos/venv/simplemoc/simplemoc/courses/admin.py",
+		"/C/projetos/degustoo/restaurante/forms.py",
+		"/C/projetos/degustoo/restaurante/views/views_cardapio.py",
+		"/C/projetos/degustoo/restaurante/models.py",
+		"/C/projetos/venv/simplemoc/simplemoc/core/models.py",
+		"/C/projetos/venv/simplemoc/simplemoc/core/views.py",
+		"/C/projetos/venv/simplemoc/simplemoc/core/templates/home.html",
+		"/C/Users/Malquiel/AppData/Local/Temp/Rar$DRa0.914/design/base.html",
+		"/C/projetos/venv/simplemoc/simplemoc/core/templates/homt.html",
+		"/C/projetos/degustoo/degustoo/settings.py",
+		"/C/projetos/degustoo/index/forms.py",
+		"/C/projetos/degustoo/restaurante/views/mixins.py",
+		"/C/projetos/degustoo/restaurante/views/views_default.py",
+		"/C/projetos/degustoo/restaurante/views/views_opcao.py",
+		"/C/projetos/degustoo/restaurante/views/views_subcardapio.py",
+		"/C/projetos/degustoo/cliente/urls.py",
+		"/C/projetos/degustoo/degAuth/admin.py",
+		"/C/projetos/degustoo/core/admin.py",
+		"/C/projetos/degustoo/cliente/admin.py",
+		"/C/projetos/degustoo/index/urls.py",
+		"/C/projetos/degustoo/index/views.py",
+		"/C/projetos/degustoo/administracao/urls.py",
+		"/C/projetos/degustoo/restaurante/admin.py",
+		"/C/projetos/degustoo/degustoo/urls.py",
+		"/C/projetos/degustoo/cliente/models.py",
+		"/C/projetos/degustoo/core/models.py",
+		"/C/projetos/degustoo/degAuth/models.py",
+		"/C/projetos/degustoo/index/models.py",
+		"/C/projetos/Degustoo/restaurante/tables.py",
+		"/C/projetos/Degustoo/restaurante/views/views_subcardapio.py",
+		"/C/projetos/Degustoo/restaurante/views/views_opcao.py",
+		"/C/projetos/Degustoo/restaurante/views/views_cardapio.py",
+		"/C/projetos/Degustoo/restaurante/views/views_default.py",
+		"/C/projetos/Degustoo/restaurante/models.py",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/templatetags/card_list.html",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/cardapio/lista_cardapio.html",
+		"/C/projetos/Degustoo/restaurante/templatetags/card_tags.py",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/base-card.html",
+		"/C/projetos/Degustoo/restaurante/static/restaurante/js/deg_restaurante.js",
+		"/C/projetos/Degustoo/Degustoo/settings.py",
+		"/C/projetos/Degustoo/restaurante/ajax/tables.py",
+		"/C/projetos/Degustoo/restaurante/ajax/__init__.py",
+		"/C/projetos/Degustoo/restaurante/templatetags/item_tags.py",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/cardapio/cardapio.html",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/cardapio/opcao.html",
+		"/C/projetos/Degustoo/restaurante/views/mixins.py",
+		"/C/projetos/Degustoo/core/ajax/response.py",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/templatetags/item_list.html",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/cardapio/subcardapio.html",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/templatetags/sub_item_list.html",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/templatetags/op_item_list.html",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/customtags/item_list.html",
+		"/C/projetos/Degustoo/restaurante/templatetags/__init__.py",
+		"/C/projetos/Degustoo/restaurante/urls.py",
+		"/C/projetos/Degustoo/restaurante/forms.py",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/cardapio/editar_opcao.html",
+		"/C/projetos/Degustoo/core/ajax/__init__.py",
+		"/C/projetos/Degustoo/restaurante/views/__init__.py",
+		"/C/projetos/Degustoo/core/ajax.py",
+		"/C/Users/Malquiel/AppData/Roaming/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Malquiel/AppData/Roaming/Sublime Text 2/Packages/Jedi - Python autocompletion/Default.sublime-keymap",
+		"/C/projetos/Degustoo/index/templates/index/index.html",
+		"/C/projetos/Degustoo/restaurante/admin.py",
+		"/C/projetos/Degustoo/degAuth/models.py",
+		"/C/projetos/Degustoo/index/templates/index/base.html",
+		"/C/projetos/Degustoo/index/forms.py",
+		"/C/projetos/Degustoo/index/static/index/css/degustoo.css",
+		"/C/projetos/Degustoo/index/templates/index/base2.html",
+		"/C/trabalhos/degustoo/css/index.css",
+		"/C/trabalhos/degustoo/index_1.html",
+		"/C/projetos/Degustoo/index/static/index/js/bootstrap.min.js",
+		"/C/projetos/Degustoo/index/static/index/js/bootstrap.js",
+		"/C/projetos/Degustoo/cliente/views.py",
+		"/C/projetos/Degustoo/administracao/forms.py",
+		"/C/projetos/Degustoo/index/templates/index/login.html",
+		"/C/projetos/Degustoo/index/templates/index/registro_restaurante.html",
+		"/C/projetos/Degustoo/index/templates/index/registrar.html",
+		"/C/projetos/Degustoo/index/views.py",
+		"/C/projetos/Degustoo/index/urls.py",
+		"/C/projetos/Degustoo/administracao/views.py",
+		"/C/projetos/Degustoo/Degustoo/__init__.py",
+		"/C/projetos/Degustoo/index/__init__.py",
+		"/C/projetos/Degustoo/restaurante/mixins.py",
+		"/C/projetos/Degustoo/restaurante/views_opcao.py",
+		"/C/projetos/Degustoo/administracao/templates/administracao/registrar_restaurante.html",
+		"/C/projetos/Degustoo/restaurante/views_cardapio.py",
+		"/C/Python27/Lib/site-packages/Django-1.7.8-py2.7.egg/django/forms/fields.py",
+		"/C/Python27/Lib/site-packages/Django-1.7.8-py2.7.egg/django/forms/forms.py",
+		"/C/projetos/Degustoo/core/models.py",
+		"/C/projetos/Degustoo/administracao/models.py",
+		"/C/projetos/Degustoo/cliente/models.py",
+		"/C/projetos/Degustoo/cliente/admin.py",
+		"/C/projetos/Degustoo/auth/tests.py",
+		"/C/projetos/Degustoo/degAuth/admin.py",
+		"/C/projetos/Degustoo/auth/models.py",
+		"/C/projetos/Degustoo/auth/admin.py",
+		"/C/projetos/Degustoo/core/admin.py",
+		"/C/projetos/Degustoo/restaurante/views_default.py",
+		"/C/projetos/Degustoo/restaurante/views_subcardapio",
+		"/C/projetos/degustoo_pedido.json",
+		"/C/projetos/Degustoo/administracao/admin.py",
+		"/C/projetos/Degustoo/core/views.py",
+		"/C/projetos/Degustoo/restaurante/static/restaurante/css/deg_restaurante.css",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/index.html",
+		"/C/projetos/Degustoo/restaurante/templates/restaurante/itens/lista_item.html"
+	],
+	"find":
+	{
+		"height": 50.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\django\\degustoo\\static\\css",
+			"C:\\_django\\_user\\mysite"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			")",
+			"__unicode__",
+			"preço",
+			"get",
+			"mixins.",
+			"postcode",
+			"code",
+			"postcode",
+			"lightbox",
+			"overlay_do_wall",
+			"confirmacao",
+			"responsavel",
+			"nome responsavel completo",
+			"getEvery",
+			"set",
+			"getEverySubmenu",
+			"getEvery",
+			"getEveryItem",
+			"get",
+			"set",
+			"getEvery",
+			"getEveryMenuFromRestaurant",
+			"get",
+			"set",
+			"get",
+			"getEvery",
+			"getEveryMenuFrom",
+			"OpcaoMixin",
+			"test",
+			"testMessage",
+			"getEveryOption",
+			"getEveryOptionFromMenu",
+			"getEverySubmenuFromMenu",
+			"getEverySubmenu",
+			"getEverySubmenuFromMenu",
+			"getEveryMenuFromRestaurant",
+			"getEverySubmenuFromMenu",
+			"getEverySubmenu",
+			"getEveryItem",
+			"menuTitleIsUnique",
+			"<span class=\"deg_fpanel_closer\">X</span>",
+			"_build",
+			"getAll",
+			"closer",
+			"deg_fpanel_closer",
+			"BASE_DIR",
+			"99ff33",
+			"):\n",
+			"manage.py",
+			"polls\\urls.py",
+			"polls/urls.py",
+			"polls\\urls",
+			"manage.py",
+			"/templates/*",
+			"/templates",
+			"/manage.py",
+			"manage.py",
+			"manage",
+			"manage.py"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"__str__",
+			"get",
+			"",
+			"deg-lightbox",
+			"deg-overlay",
+			"Confirmação",
+			"responsável",
+			"",
+			"getEvery_submenu",
+			"getEvery_item",
+			"getEvery_menu",
+			"getEverySubmenu",
+			"<a class=\"deg_fpanel_closer\">X</a>",
+			"build",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"courseadmin",
+				"venv/simplemoc/simplemoc/courses/admin.py"
+			],
+			[
+				"clivi",
+				"cliente/views.py"
+			],
+			[
+				"restmodel",
+				"restaurante/models.py"
+			],
+			[
+				"admform",
+				"administracao/forms.py"
+			],
+			[
+				"resform",
+				"restaurante/forms.py"
+			],
+			[
+				"indexurls",
+				"index/urls.py"
+			],
+			[
+				"resadmin",
+				"restaurante/admin.py"
+			],
+			[
+				"restmodels",
+				"restaurante/models.py"
+			],
+			[
+				"restamixi",
+				"restaurante/mixins.py"
+			],
+			[
+				"views",
+				"administracao/views.py"
+			],
+			[
+				"degauthmodel",
+				"degAuth/models.py"
+			],
+			[
+				"cliviews",
+				"cliente/views.py"
+			],
+			[
+				"admviews",
+				"administracao/views.py"
+			],
+			[
+				"adminre",
+				"administracao/templates/administracao/registrar_restaurante.html"
+			],
+			[
+				"adminviews",
+				"administracao/views.py"
+			],
+			[
+				"indexforms",
+				"index/forms.py"
+			],
+			[
+				"adminforms",
+				"administracao/forms.py"
+			],
+			[
+				"authmodels",
+				"degAuth/models.py"
+			],
+			[
+				"settings",
+				"Degustoo/settings.py"
+			],
+			[
+				"models",
+				"cliente/models.py"
+			],
+			[
+				"resturls",
+				"restaurante/urls.py"
+			],
+			[
+				"coreadmin",
+				"core/admin.py"
+			],
+			[
+				"restaurantemodels",
+				"restaurante/models.py"
+			],
+			[
+				"model",
+				"core/models.py"
+			],
+			[
+				"indexviews",
+				"index/views.py"
+			],
+			[
+				"restauranteforms",
+				"restaurante/forms.py"
+			],
+			[
+				"view",
+				"restaurante/views_default.py"
+			],
+			[
+				"coremodels",
+				"core/models.py"
+			],
+			[
+				"fpanel",
+				"index/static/index/fonts/glyphicons-halflings-regular.svg"
+			],
+			[
+				"php",
+				"www/wordpress/wp-includes/class-phpass.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/D/git.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 337.0,
+	"status_bar_visible": true
+}

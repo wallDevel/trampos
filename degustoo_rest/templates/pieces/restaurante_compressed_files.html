@@ -1,0 +1,33 @@
+{% load staticfiles %}
+{% load compress %}
+
+{% compress css %}
+<link rel="stylesheet" type="text/x-scss" href="{% static 'sass/index/main.scss'%}" />
+{% endcompress %}
+
+{% compress js %}
+
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/app.coffee'%}"></script>
+
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/controllers/cardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/controllers/subcardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/controllers/opcao.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/controllers/item_cardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/controllers/item_subcardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/controllers/item_opcao.coffee'%}"></script>
+
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/directives/lista_cardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/directives/lista_subcardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/directives/lista_opcao.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/directives/lista_item_cardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/directives/lista_item_subcardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/directives/lista_item_opcao.coffee'%}"></script>
+
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/services/cardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/services/subcardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/services/opcao.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/services/item_cardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/services/item_subcardapio.coffee'%}"></script>
+<script type="text/coffeescript" charset="utf-8" src="{% static 'coffeescript/restaurante/application/services/item_opcao.coffee'%}"></script>
+
+{% endcompress %}

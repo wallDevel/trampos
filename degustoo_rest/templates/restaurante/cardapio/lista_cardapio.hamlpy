@@ -1,0 +1,161 @@
+-extends 'restaurante/base-card.html'
+
+-load compress
+-load staticfiles
+
+-block ng_app
+	ng-app="ListaCardapio"
+
+-block stylesheets
+	%link{href:'{% static "index/libs/pure/pure-min.css" %}'}
+
+-block scripts
+	:javascript
+		var app = angular.module('ListaCardapio', ['ui.bootstrap', 'ngResource']);
+
+		app.config(function($interpolateProvider, $httpProvider, $resourceProvider){
+			$interpolateProvider.startSymbol('[[');
+			$interpolateProvider.endSymbol(']]');
+			$httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+			$httpProvider.defaults.xsrfCookieName = 'csrftoken';
+			$resourceProvider.defaults.stripTrailingSlashes = false;
+		});
+
+		app.factory('Cardapio', ['$resource', function($resource){
+			return $resource(
+				'/ajax/restaurante/:id_restaurante/cardapio/:id_cardapio', 
+				null,
+				{'update': {method: 'PUT'}}
+			);
+		}]);
+
+		app.controller('ListaCardapioCtrl', ['$scope', '$uibModal', 'Cardapio', function($scope, $uibModal, Cardapio){
+
+			$scope.carregar_lista = function(){
+				Cardapio.query(
+					{id_restaurante:{{user.restaurante.id}}}, 
+					function(data){
+						console.log(data); $scope.lista_cardapios=data;
+					}
+				);
+			};
+
+			$scope.novo_cardapio = function(cardapio){
+				Cardapio.save(
+					{id_restaurante:{{user.restaurante.id}}},
+					cardapio,
+					function(data){
+						console.log(data); $scope.carregar_lista();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+
+			$scope.editar_cardapio = function(card){
+				var modal = $uibModal.open({
+					templateUrl: 'edit_card.html',
+					controller: 'modalCtrl',
+					scope: $scope,
+					resolve: {
+						cardapio: function(){return angular.copy(card);}
+					},
+				});
+			};
+
+			$scope.remover = function(cardapio){
+				var modal = $uibModal.open({
+					templateUrl: 'remove_card.html',
+					controller: 'modalCtrl',
+					scope: $scope,
+					resolve: {
+						cardapio: function(){return angular.copy(cardapio);}
+					}
+				});
+			};
+
+			$scope.carregar_lista();
+
+		}]);
+
+		app.controller('modalCtrl', ['$scope', '$uibModalInstance', 'Cardapio', 'cardapio', function($scope, $uibModalInstance, Cardapio, cardapio){
+			$scope.original_menu = cardapio;
+			$scope.menu_to_update = cardapio;
+
+			$scope.printer = function(){
+				console.log(cardapio);
+			};
+
+			$scope.close = function(){
+				$uibModalInstance.dismiss('Fechando');
+			};
+
+			$scope.alterar_cardapio = function(cardapio, data){
+				Cardapio.update(
+					{id_restaurante:{{user.restaurante.id}}, id_cardapio:cardapio.id},
+					data,
+					function(data){
+						console.log(data); $scope.carregar_lista(); $scope.close();
+					},
+					function(error){
+						console.log(error);
+					}
+				)
+			};
+
+			$scope.excluir_cardapio = function(){
+				Cardapio.delete(
+					{id_restaurante:{{user.restaurante.id}}, id_cardapio:cardapio.id},
+					function(data){
+						console.log(data); $scope.carregar_lista(); $scope.close();
+					},
+					function(error){
+						console.log(error);
+					}
+				);
+			};
+		}]);
+
+
+-block content
+	
+	%script{type:'text/ng-template', id:'edit_card.html'}
+		%form.pure-form.pure-form-stacked.pure-g.modal-form
+			%fieldset
+				%legend.pure-u-1 Editar Cardapio
+				%input.pure-u-1{name:'titulo', placeholder:'Titulo', ng-model:'menu_to_update.titulo'}
+				%input.pure-u-1{name:'tipo', placeholder:'Tipo', ng-model:'menu_to_update.tipo'}
+				%button.btn.btn-primary.pure-u-1{ng-click:'alterar_cardapio(original_menu, menu_to_update)'} Salvar
+				%button.btn.btn-danger.pure-u-1{ng-click:'close()'} Cancelar
+
+	%script{type:'text/ng-template', id:'remove_card.html'}
+		.light
+			.alert.alert-danger
+				%strong
+					Ao excluir este cardapio todos os dados relativos ao mesmo serão perdidos.
+					Deseja continuar?
+			%button.btn.btn-primary{ng-click:'excluir_cardapio()'} Sim
+			%button.btn.btn-danger{ng-click:'close()'} Não
+
+
+	%div{ng-controller:'ListaCardapioCtrl as cardsCtrl'}
+		.card_adder
+			%form.pure-form
+				%fieldset
+					%legend Adicionar cardapio
+					%input{type:'hidden', ng-init:'cardapio_novo.restaurante = {{user.restaurante.pk}}'}
+					%input{type:'text', name:'titulo', placeholder:'Titulo', ng-model:'cardapio_novo.titulo'}
+					%input{type:'text', name:'tipo', placeholder:'Tipo', ng-model:'cardapio_novo.tipo'}
+					%button.pure-button.pure-button-primary{type:'submit', ng-click:'novo_cardapio(cardapio_novo)'} Salvar
+
+		.card_container
+			.list{ng-repeat:'cardapio in lista_cardapios'}
+				%h3 Título: 
+					%span{ng-bind:'cardapio.titulo'}
+				%h3 Tipo:
+					%span{ng-bind:'cardapio.tipo'}
+				%button.pure-button.pure-button-primary{ng-click:'remover(cardapio)'} Remover
+				%button.pure-button.pure-button-primary{ng-click:'editar_cardapio(cardapio)'} Editar Cardapio
+				%a.pure-button.pure-button-primary{href:"/restaurante/cardapio/[[cardapio.id]]"} Editar Conteúdo
+

@@ -1,0 +1,8 @@
+<div ng-init="item_menu_controller.reload([[promocoes.pk]])">
+	<div ng-repeat="item in itens">
+		<p>[[item.nome]]</p>
+		<p>[[item.preco]]</p>
+		<button ng-click="item_menu_controller.deleteItem([[promocoes.pk]],item.id)">Deletar</button>
+		<hr/>
+	</div>
+</div>

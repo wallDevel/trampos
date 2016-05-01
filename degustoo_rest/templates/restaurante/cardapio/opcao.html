@@ -1,0 +1,24 @@
+{% extends 'restaurante/base-card.html' %}
+
+{% load item_tags %}
+
+{% block content %}
+	<h1>{{opcao.rotulo}}</h1>
+
+	<form class="deg-addItem-form" action="{% url 'restaurante:opcao' cardapio.id opcao.id %}" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Importar">
+	</form>
+
+	{% if form_item_price %}
+		<form class="deg-editItem-form" action="{% url 'restaurante:gerar_item_preco' cardapio.id opcao.id %}" method="post">
+			{% csrf_token %}
+			{{ form_item_price.as_p }}
+			<input type="submit" value="Gerar preço">
+		</form>
+	{% endif %}
+
+	{% option_item_list opcao %}
+	
+{% endblock %}
